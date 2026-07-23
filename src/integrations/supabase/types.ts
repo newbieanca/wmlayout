@@ -14,7 +14,57 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      slide_content: {
+        Row: {
+          content_key: string
+          updated_at: string
+          value: string
+        }
+        Insert: {
+          content_key: string
+          updated_at?: string
+          value?: string
+        }
+        Update: {
+          content_key?: string
+          updated_at?: string
+          value?: string
+        }
+        Relationships: []
+      }
+      slide_image_slots: {
+        Row: {
+          image_url: string | null
+          object_fit: string
+          overlay_opacity: number
+          position: string
+          size_percent: number
+          slot_key: string
+          storage_path: string | null
+          updated_at: string
+        }
+        Insert: {
+          image_url?: string | null
+          object_fit?: string
+          overlay_opacity?: number
+          position?: string
+          size_percent?: number
+          slot_key: string
+          storage_path?: string | null
+          updated_at?: string
+        }
+        Update: {
+          image_url?: string | null
+          object_fit?: string
+          overlay_opacity?: number
+          position?: string
+          size_percent?: number
+          slot_key?: string
+          storage_path?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

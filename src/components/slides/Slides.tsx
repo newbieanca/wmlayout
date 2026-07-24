@@ -357,9 +357,9 @@ export function Slide7() {
 
 /* ---------- Slide 8 — Packing ---------- */
 export function Slide8() {
-  const steps = ["Cleaning Product", "Accessory Check", "Carton Packing", "Labeling", "Barcode Verification"];
+  const steps = ["Cleaning Product", "Accessory Check", "Labeling", "Barcode Verification", "Carton Packing"];
   return (
-    <SlideShell kicker="08 / 14  ·  Packing" title="Packing Process" slideKey="s8" titleKey="s8_title">
+    <SlideShell kicker="08 / 14  ·  Finishing - Packing" title="Finishing - Packing Process" slideKey="s8" titleKey="s8_title">
       <div className="grid md:grid-cols-12 gap-6">
         <div className="md:col-span-8">
           <div className="space-y-3">
@@ -394,19 +394,19 @@ export function Slide9() {
   const stations = [
     { name: "Part Preparation", desc: "Persiapan part sesuai kebutuhan proses berikutnya." },
     { name: "Sub Assembly", desc: "Perakitan komponen menjadi sub-unit." },
-    { name: "Main Assembly", desc: "Sub assembly dirakit menjadi unit lengkap." },
+    { name: "Main Assembly", desc: "Sub assembly dan single part lainnya dirakit menjadi unit lengkap." },
     { name: "Inspection", desc: "Pemeriksaan fungsi & visual." },
-    { name: "Packing", desc: "Cleaning, accessory, carton, labeling." },
+    { name: "Finishing - Packing", desc: "Cleaning, accessory, labeling, carton." },
     { name: "FG Warehouse", desc: "Penyimpanan produk jadi sebelum shipping." },
   ];
   return (
-    <SlideShell kicker="09 / 14  ·  Layout" title="Layout Pabrik / Line" slideKey="s9" titleKey="s9_title">
+    <SlideShell kicker="09 / 14  ·  Layout" title="Factory Layout / Line" slideKey="s9" titleKey="s9_title">
       <div className="grid md:grid-cols-12 gap-6 h-full">
         <div className="md:col-span-8">
           <SlotImage slotKey="s9_layout" aspect="aspect-[16/9]" placeholderLabel="Upload denah layout line di Settings" />
           <div className="mt-3 text-xs font-mono text-steel">
             <MapIcon className="inline w-3 h-3 mr-1" />
-            Denah aktual line — upload di Settings › Slide 9
+            Denah aktual line — Klik gambar untuk fullscreen
           </div>
           <div className="mt-4">
             <EditableText contentKey="s9_notes" defaultValue="Klik dua kali untuk menambahkan catatan denah — misalnya area line A, area line B, lokasi mesin, dll."
@@ -414,7 +414,7 @@ export function Slide9() {
           </div>
         </div>
         <div className="md:col-span-4 space-y-2">
-          <div className="text-xs font-mono uppercase tracking-widest text-steel mb-2">Alur Stasiun (hover untuk detail)</div>
+          <div className="text-xs font-mono uppercase tracking-widest text-steel mb-2">Production Flow (hover untuk detail)</div>
           {stations.map((s, i) => (
             <div key={i} className="group relative bg-white border border-navy/10 rounded-lg p-3 hover:border-safety hover:shadow-md transition-all cursor-help">
               <div className="flex items-center gap-2">
@@ -592,7 +592,7 @@ export function Slide14() {
           <div className="flex items-center justify-between mb-4">
             <div className="flex gap-2">
               <button onClick={() => setTab("output")} className={`px-4 py-2 rounded-lg text-sm font-semibold ${tab === "output" ? "bg-navy text-white" : "bg-surface text-navy"}`}>
-                Output per Shift
+                Output per Grup
               </button>
               <button onClick={() => setTab("defect")} className={`px-4 py-2 rounded-lg text-sm font-semibold ${tab === "defect" ? "bg-navy text-white" : "bg-surface text-navy"}`}>
                 NG / Defect Rate
@@ -627,7 +627,7 @@ export function Slide14() {
           <SlotImage slotKey="s14_data" aspect="aspect-[4/3]" placeholderLabel="Foto pendukung data" />
           <div className="bg-navy text-white rounded-xl p-4">
             <div className="text-xs font-mono uppercase tracking-widest text-safety mb-1">Insight</div>
-            <p className="text-sm">Defect rate menurun tiap minggu — hasil implementasi standard work &amp; self-inspection.</p>
+            <p className="text-sm">Defect rate menurun tiap minggu — hasil implementasi standard work &amp; self-inspection (pengecekan sebelum assy).</p>
           </div>
         </div>
       </div>

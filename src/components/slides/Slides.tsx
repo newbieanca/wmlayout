@@ -547,19 +547,22 @@ export function Slide12() {
 export function Slide13() {
   return (
     <SlideShell kicker="12 / 14  ·  Safety" title="Standar Kerja & Safety Point" slideKey="s13" titleKey="s13_title">
-      <div className="grid md:grid-cols-3 gap-4 h-full">
-        <div className="bg-white border border-navy/10 rounded-xl p-5">
-          <div className="flex items-center gap-2 mb-3"><ClipboardCheck className="w-4 h-4 text-safety" /><h3 className="font-bold text-navy">Standard Work</h3></div>
-          <Checklist storageKey="s13_std" items={["Mengikuti SOP", "Mengikuti Work Instruction", "Mengikuti Standard Cycle Time", "Menggunakan alat sesuai standar"]} />
+      <div className="space-y-4">
+        <div className="grid md:grid-cols-3 gap-4">
+          <div className="bg-white border border-navy/10 rounded-xl p-5">
+            <div className="flex items-center gap-2 mb-3"><ClipboardCheck className="w-4 h-4 text-safety" /><h3 className="font-bold text-navy">Standard Work</h3></div>
+            <Checklist storageKey="s13_std" items={["Mengikuti SOP", "Mengikuti Work Instruction", "Mengikuti Standard Cycle Time", "Menggunakan alat sesuai standar"]} />
+          </div>
+          <div className="bg-white border border-navy/10 rounded-xl p-5">
+            <div className="flex items-center gap-2 mb-3"><ShieldCheck className="w-4 h-4 text-safety" /><h3 className="font-bold text-navy">Safety Point</h3></div>
+            <Checklist storageKey="s13_safe" items={["Menggunakan APD", "Memastikan area kerja aman", "Menjaga implementasi 5S"]} />
+          </div>
+          <div className="bg-navy text-white rounded-xl p-5">
+            <div className="flex items-center gap-2 mb-3"><Boxes className="w-4 h-4 text-safety" /><h3 className="font-bold text-white">5S</h3></div>
+            <Checklist storageKey="s13_5s" items={["Seiri (Ringkas)", "Seiton (Rapi)", "Seiso (Resik)", "Seiketsu (Rawat)", "Shitsuke (Rajin)"]} />
+          </div>
         </div>
-        <div className="bg-white border border-navy/10 rounded-xl p-5">
-          <div className="flex items-center gap-2 mb-3"><ShieldCheck className="w-4 h-4 text-safety" /><h3 className="font-bold text-navy">Safety Point</h3></div>
-          <Checklist storageKey="s13_safe" items={["Menggunakan APD", "Memastikan area kerja aman", "Menjaga implementasi 5S"]} />
-        </div>
-        <div className="bg-navy text-white rounded-xl p-5">
-          <div className="flex items-center gap-2 mb-3"><Boxes className="w-4 h-4 text-safety" /><h3 className="font-bold">5S</h3></div>
-          <Checklist storageKey="s13_5s" items={["Seiri (Ringkas)", "Seiton (Rapi)", "Seiso (Resik)", "Seiketsu (Rawat)", "Shitsuke (Rajin)"]} />
-        </div>
+        <ProductionSimForm />
       </div>
     </SlideShell>
   );

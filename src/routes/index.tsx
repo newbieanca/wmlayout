@@ -153,6 +153,7 @@ function PresentationApp() {
       </div>
 
       <SettingsPanel open={settingsOpen} onClose={() => setSettingsOpen(false)} jumpToSlide={(n) => goto(n - 1)} />
+      <Lightbox />
     </div>
   );
 }

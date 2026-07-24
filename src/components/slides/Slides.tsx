@@ -573,9 +573,11 @@ export function Slide13() {
 export function Slide14() {
   const [tab, setTab] = useState<"output" | "defect">("output");
   const output = [
-    { name: "Shift 1", unit: 420 },
-    { name: "Shift 2", unit: 405 },
-    { name: "Shift 3", unit: 380 },
+    { name: "Grup A", unit: 1557 },
+    { name: "Grup B", unit: 724 },
+    { name: "Grup C", unit: 796 },
+    { name: "Grup D", unit: 0 },
+    { name: "Grup E", unit: 1337 },
   ];
   const defect = [
     { name: "Wk1", rate: 1.8 },

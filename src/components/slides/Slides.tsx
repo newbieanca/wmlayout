@@ -31,7 +31,7 @@ const Chip = ({ children, tone = "navy" }: { children: React.ReactNode; tone?: "
 /* ---------- Slide 1 — Cover ---------- */
 export function Slide1() {
   return (
-    <SlotBackground slotKey="s1_cover" className="h-full w-full bg-blueprint text-white">
+    <SlotBackground slotKey="s1_cover" className="relative h-full w-full bg-blueprint text-white">
       <div className="h-full flex flex-col justify-between p-10 md:p-16">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded bg-safety flex items-center justify-center">

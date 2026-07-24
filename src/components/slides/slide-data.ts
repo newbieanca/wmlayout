@@ -1,7 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import {
   LayoutDashboard, Target, Factory, GitBranch, Wrench, Boxes,
-  ClipboardCheck, Package, Map, AlertTriangle, Truck, Users,
+  ClipboardCheck, Package, Map, Truck, Users,
   ShieldCheck, BarChart3, CheckCircle2,
 } from "lucide-react";
 
@@ -21,10 +21,9 @@ export const SLIDES: SlideMeta[] = [
   { number: 7, title: "Inspection Process", icon: ClipboardCheck },
   { number: 8, title: "Packing Process", icon: Package },
   { number: 9, title: "Layout Pabrik / Line", icon: Map },
-  { number: 10, title: "Titik Kritis dalam Layout", icon: AlertTriangle },
-  { number: 11, title: "Alur Material", icon: Truck },
-  { number: 12, title: "Peran Leader & Operator", icon: Users },
-  { number: 13, title: "Standar Kerja & Safety", icon: ShieldCheck },
-  { number: 14, title: "Data Pendukung", icon: BarChart3 },
-  { number: 15, title: "Kesimpulan", icon: CheckCircle2 },
+  { number: 10, title: "Alur Material", icon: Truck },
+  { number: 11, title: "Peran Leader & Operator", icon: Users },
+  { number: 12, title: "Standar Kerja & Safety", icon: ShieldCheck },
+  { number: 13, title: "Data Pendukung", icon: BarChart3 },
+  { number: 14, title: "Kesimpulan", icon: CheckCircle2 },
 ];

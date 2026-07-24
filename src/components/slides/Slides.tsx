@@ -2,16 +2,23 @@ import { useState } from "react";
 import { SlotImage, SlotBackground } from "@/components/SlotImage";
 import { EditableText } from "@/components/EditableText";
 import { Checklist } from "@/components/Checklist";
+import { CustomLayer } from "@/components/CustomLayer";
+import { ProductionSimForm } from "@/components/ProductionSimForm";
 import { ChevronRight, Play, Target, Users, ClipboardList, ShieldCheck, BarChart3, ChevronDown, Boxes, Truck, Factory, Package, Wrench, ClipboardCheck, Map as MapIcon, AlertTriangle, CircleDot, ArrowRight, CheckCircle2, ArrowDown } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from "recharts";
 
 /* ---------- Shared shells ---------- */
-export function SlideShell({ children, kicker, title, className = "" }: { children: React.ReactNode; kicker?: string; title?: string; className?: string }) {
+export function SlideShell({ children, kicker, title, className = "", slideKey, titleKey }: { children: React.ReactNode; kicker?: string; title?: string; className?: string; slideKey?: string; titleKey?: string }) {
   return (
-    <div className={`h-full w-full flex flex-col p-8 md:p-12 overflow-auto ${className}`}>
+    <div className={`relative h-full w-full flex flex-col p-8 md:p-12 overflow-auto ${className}`}>
       {kicker && <div className="chip w-fit mb-4">{kicker}</div>}
-      {title && <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6 leading-tight">{title}</h1>}
+      {title && (
+        <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6 leading-tight">
+          {titleKey ? <EditableText contentKey={titleKey} defaultValue={title} /> : title}
+        </h1>
+      )}
       <div className="flex-1 min-h-0">{children}</div>
+      {slideKey && <CustomLayer slideKey={slideKey} />}
     </div>
   );
 }
@@ -24,7 +31,7 @@ const Chip = ({ children, tone = "navy" }: { children: React.ReactNode; tone?: "
 /* ---------- Slide 1 — Cover ---------- */
 export function Slide1() {
   return (
-    <SlotBackground slotKey="s1_cover" className="h-full w-full bg-blueprint text-white">
+    <SlotBackground slotKey="s1_cover" className="relative h-full w-full bg-blueprint text-white">
       <div className="h-full flex flex-col justify-between p-10 md:p-16">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded bg-safety flex items-center justify-center">
@@ -57,6 +64,7 @@ export function Slide1() {
           </div>
         </div>
       </div>
+      <CustomLayer slideKey="s1" />
     </SlotBackground>
   );
 }
@@ -73,7 +81,7 @@ export function Slide2() {
     "Safety point dan standard working",
   ];
   return (
-    <SlideShell kicker="02 / 15  ·  Tujuan" title="Tujuan & Ruang Lingkup">
+    <SlideShell kicker="02 / 14  ·  Tujuan" title="Tujuan & Ruang Lingkup" slideKey="s2" titleKey="s2_title">
       <div className="grid md:grid-cols-3 gap-6 h-full">
         <div className="md:col-span-2 space-y-6">
           <div className="bg-navy text-white rounded-xl p-6 border-l-4 border-safety">
@@ -122,7 +130,7 @@ export function Slide2() {
 export function Slide3() {
   const objectives = ["Safety", "Quality", "Delivery", "Cost", "Productivity"];
   return (
-    <SlideShell kicker="03 / 15  ·  Overview" title="Overview Line Produksi WM">
+    <SlideShell kicker="03 / 14  ·  Overview" title="Overview Line Produksi WM" slideKey="s3" titleKey="s3_title">
       <div className="grid md:grid-cols-12 gap-6">
         <div className="md:col-span-7 space-y-4">
           <div className="grid grid-cols-2 gap-4">
@@ -200,7 +208,7 @@ export function Slide4() {
   ];
   const [active, setActive] = useState(0);
   return (
-    <SlideShell kicker="04 / 15  ·  Flow" title="Alur Proses Produksi — Overview">
+    <SlideShell kicker="04 / 14  ·  Flow" title="Alur Proses Produksi — Overview" slideKey="s4" titleKey="s4_title">
       <div className="grid md:grid-cols-12 gap-6 h-full">
         <div className="md:col-span-7 grid grid-cols-2 gap-2 content-start">
           {stages.map((s, i) => (
@@ -230,7 +238,7 @@ export function Slide4() {
 /* ---------- Slide 5 — Sub Assembly ---------- */
 export function Slide5() {
   return (
-    <SlideShell kicker="05 / 15  ·  Sub Assembly" title="Sub Assembly Process (Full Automatic WM)">
+    <SlideShell kicker="05 / 14  ·  Sub Assembly" title="Sub Assembly Process (Full Automatic WM)" slideKey="s5" titleKey="s5_title">
       <div className="grid md:grid-cols-12 gap-6">
         <div className="md:col-span-5">
           <SlotImage slotKey="s5_subassy" aspect="aspect-[4/3]" placeholderLabel="Foto Sub Assembly" />
@@ -272,7 +280,7 @@ export function Slide5() {
 /* ---------- Slide 6 — Main Assembly ---------- */
 export function Slide6() {
   return (
-    <SlideShell kicker="06 / 15  ·  Main Line" title="Main Assembly Line">
+    <SlideShell kicker="06 / 14  ·  Main Line" title="Main Assembly Line" slideKey="s6" titleKey="s6_title">
       <div className="grid md:grid-cols-12 gap-6">
         <div className="md:col-span-7 space-y-4">
           <SlotImage slotKey="s6_main" aspect="aspect-[16/8]" placeholderLabel="Foto Main Assembly" />
@@ -314,7 +322,7 @@ export function Slide6() {
 /* ---------- Slide 7 — Inspection ---------- */
 export function Slide7() {
   return (
-    <SlideShell kicker="07 / 15  ·  QC" title="Inspection Process">
+    <SlideShell kicker="07 / 14  ·  QC" title="Inspection Process" slideKey="s7" titleKey="s7_title">
       <div className="grid md:grid-cols-12 gap-6">
         <div className="md:col-span-5">
           <SlotImage slotKey="s7_inspection" aspect="aspect-square" placeholderLabel="Foto Inspection" />
@@ -351,7 +359,7 @@ export function Slide7() {
 export function Slide8() {
   const steps = ["Cleaning Product", "Accessory Check", "Carton Packing", "Labeling", "Barcode Verification"];
   return (
-    <SlideShell kicker="08 / 15  ·  Packing" title="Packing Process">
+    <SlideShell kicker="08 / 14  ·  Packing" title="Packing Process" slideKey="s8" titleKey="s8_title">
       <div className="grid md:grid-cols-12 gap-6">
         <div className="md:col-span-8">
           <div className="space-y-3">
@@ -392,7 +400,7 @@ export function Slide9() {
     { name: "FG Warehouse", desc: "Penyimpanan produk jadi sebelum shipping." },
   ];
   return (
-    <SlideShell kicker="09 / 15  ·  Layout" title="Layout Pabrik / Line">
+    <SlideShell kicker="09 / 14  ·  Layout" title="Layout Pabrik / Line" slideKey="s9" titleKey="s9_title">
       <div className="grid md:grid-cols-12 gap-6 h-full">
         <div className="md:col-span-8">
           <SlotImage slotKey="s9_layout" aspect="aspect-[16/9]" placeholderLabel="Upload denah layout line di Settings" />
@@ -457,7 +465,7 @@ export function Slide10() {
 export function Slide11() {
   const flow = ["Supplier", "Warehouse", "Part Preparation", "Sub Assembly", "Main Assembly", "Inspection", "Packing", "Finished Goods"];
   return (
-    <SlideShell kicker="11 / 15  ·  Material Flow" title="Alur Material (Material Flow)">
+    <SlideShell kicker="10 / 14  ·  Material Flow" title="Alur Material (Material Flow)" slideKey="s11" titleKey="s11_title">
       <div className="grid md:grid-cols-12 gap-6">
         <div className="md:col-span-8 space-y-3">
           <div className="grid grid-cols-4 gap-2">
@@ -511,7 +519,7 @@ export function Slide12() {
     { key: "s12_mh", title: "Material Handler", items: ["Menyediakan material", "Menjaga kelancaran supply line", "Mengontrol stok line"] },
   ];
   return (
-    <SlideShell kicker="12 / 15  ·  Roles" title="Peran Leader & Operator dalam Flow">
+    <SlideShell kicker="11 / 14  ·  Roles" title="Peran Leader & Operator dalam Flow" slideKey="s12" titleKey="s12_title">
       <div className="grid md:grid-cols-2 gap-4 h-full">
         {roles.map((r) => (
           <div key={r.key} className="bg-white border border-navy/10 rounded-xl overflow-hidden flex">
@@ -539,20 +547,23 @@ export function Slide12() {
 /* ---------- Slide 13 — Standar & Safety ---------- */
 export function Slide13() {
   return (
-    <SlideShell kicker="13 / 15  ·  Safety" title="Standar Kerja & Safety Point">
-      <div className="grid md:grid-cols-3 gap-4 h-full">
-        <div className="bg-white border border-navy/10 rounded-xl p-5">
-          <div className="flex items-center gap-2 mb-3"><ClipboardCheck className="w-4 h-4 text-safety" /><h3 className="font-bold text-navy">Standard Work</h3></div>
-          <Checklist storageKey="s13_std" items={["Mengikuti SOP", "Mengikuti Work Instruction", "Mengikuti Standard Cycle Time", "Menggunakan alat sesuai standar"]} />
+    <SlideShell kicker="12 / 14  ·  Safety" title="Standar Kerja & Safety Point" slideKey="s13" titleKey="s13_title">
+      <div className="space-y-4">
+        <div className="grid md:grid-cols-3 gap-4">
+          <div className="bg-white border border-navy/10 rounded-xl p-5">
+            <div className="flex items-center gap-2 mb-3"><ClipboardCheck className="w-4 h-4 text-safety" /><h3 className="font-bold text-navy">Standard Work</h3></div>
+            <Checklist storageKey="s13_std" items={["Mengikuti SOP", "Mengikuti Work Instruction", "Mengikuti Standard Cycle Time", "Menggunakan alat sesuai standar"]} />
+          </div>
+          <div className="bg-white border border-navy/10 rounded-xl p-5">
+            <div className="flex items-center gap-2 mb-3"><ShieldCheck className="w-4 h-4 text-safety" /><h3 className="font-bold text-navy">Safety Point</h3></div>
+            <Checklist storageKey="s13_safe" items={["Menggunakan APD", "Memastikan area kerja aman", "Menjaga implementasi 5S"]} />
+          </div>
+          <div className="bg-navy text-white rounded-xl p-5">
+            <div className="flex items-center gap-2 mb-3"><Boxes className="w-4 h-4 text-safety" /><h3 className="font-bold text-white">5S</h3></div>
+            <Checklist storageKey="s13_5s" items={["Seiri (Ringkas)", "Seiton (Rapi)", "Seiso (Resik)", "Seiketsu (Rawat)", "Shitsuke (Rajin)"]} />
+          </div>
         </div>
-        <div className="bg-white border border-navy/10 rounded-xl p-5">
-          <div className="flex items-center gap-2 mb-3"><ShieldCheck className="w-4 h-4 text-safety" /><h3 className="font-bold text-navy">Safety Point</h3></div>
-          <Checklist storageKey="s13_safe" items={["Menggunakan APD", "Memastikan area kerja aman", "Menjaga implementasi 5S"]} />
-        </div>
-        <div className="bg-navy text-white rounded-xl p-5">
-          <div className="flex items-center gap-2 mb-3"><Boxes className="w-4 h-4 text-safety" /><h3 className="font-bold">5S</h3></div>
-          <Checklist storageKey="s13_5s" items={["Seiri (Ringkas)", "Seiton (Rapi)", "Seiso (Resik)", "Seiketsu (Rawat)", "Shitsuke (Rajin)"]} />
-        </div>
+        <ProductionSimForm />
       </div>
     </SlideShell>
   );
@@ -573,7 +584,7 @@ export function Slide14() {
     { name: "Wk4", rate: 0.9 },
   ];
   return (
-    <SlideShell kicker="14 / 15  ·  Data" title="Data Pendukung (Contoh)">
+    <SlideShell kicker="13 / 14  ·  Data" title="Data Pendukung (Contoh)" slideKey="s14" titleKey="s14_title">
       <div className="grid md:grid-cols-12 gap-6 h-full">
         <div className="md:col-span-8 bg-white border border-navy/10 rounded-xl p-5 flex flex-col">
           <div className="flex items-center justify-between mb-4">
@@ -632,7 +643,7 @@ export function Slide15() {
     "Standard Work dan Safety menjadi kunci keberhasilan proses produksi.",
   ];
   return (
-    <SlideShell kicker="15 / 15  ·  Summary" title="Kesimpulan">
+    <SlideShell kicker="14 / 14  ·  Summary" title="Kesimpulan" slideKey="s15" titleKey="s15_title">
       <div className="grid md:grid-cols-12 gap-6 h-full">
         <div className="md:col-span-8 space-y-3">
           {summary.map((s, i) => (
@@ -660,4 +671,4 @@ export function Slide15() {
   );
 }
 
-export const SLIDE_COMPONENTS = [Slide1, Slide2, Slide3, Slide4, Slide5, Slide6, Slide7, Slide8, Slide9, Slide10, Slide11, Slide12, Slide13, Slide14, Slide15];
+export const SLIDE_COMPONENTS = [Slide1, Slide2, Slide3, Slide4, Slide5, Slide6, Slide7, Slide8, Slide9, Slide11, Slide12, Slide13, Slide14, Slide15];

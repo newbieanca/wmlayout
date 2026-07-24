@@ -13,10 +13,10 @@ export function Checklist({ storageKey, items }: { storageKey: string; items: st
   return (
     <div>
       <div className="flex items-center justify-between mb-3">
-        <span className="text-xs font-mono uppercase tracking-widest text-steel">Progress</span>
-        <span className="text-xs font-mono text-navy font-bold">{checked.size}/{items.length}</span>
+        <span className="text-xs font-mono uppercase tracking-widest text-current opacity-70">Progress</span>
+        <span className="text-xs font-mono font-bold">{checked.size}/{items.length}</span>
       </div>
-      <div className="h-1.5 bg-navy/10 rounded-full overflow-hidden mb-4">
+      <div className="h-1.5 bg-black/10 rounded-full overflow-hidden mb-4">
         <div className="h-full bg-safety transition-all" style={{ width: `${progress}%` }} />
       </div>
       <ul className="space-y-2">
@@ -26,7 +26,7 @@ export function Checklist({ storageKey, items }: { storageKey: string; items: st
             <li key={i}>
               <button
                 onClick={() => toggle(i)}
-                className={`w-full flex items-start gap-3 text-left p-3 rounded-md border transition-all ${on ? "bg-navy text-white border-navy" : "bg-white border-navy/15 hover:border-safety"}`}
+                className={`w-full flex items-start gap-3 text-left p-3 rounded-md border transition-all ${on ? "bg-navy text-white border-navy" : "bg-white text-navy border-navy/15 hover:border-safety"}`}
               >
                 <span className={`shrink-0 w-5 h-5 rounded border-2 flex items-center justify-center mt-0.5 ${on ? "border-safety bg-safety" : "border-navy/40"}`}>
                   {on && <Check className="w-3.5 h-3.5 text-navy" strokeWidth={3} />}

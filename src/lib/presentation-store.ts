@@ -27,15 +27,11 @@ export const IMAGE_SLOTS: SlotConfig[] = [
   { key: "s7_inspection", slide: 7, label: "Slide 7 — Inspection" },
   { key: "s8_packing", slide: 8, label: "Slide 8 — Packing" },
   { key: "s9_layout", slide: 9, label: "Slide 9 — Denah Layout Pabrik (PENTING)", defaultPosition: "center" },
-  { key: "s10_bottleneck", slide: 10, label: "Slide 10 — Area Bottleneck" },
-  { key: "s10_qc", slide: 10, label: "Slide 10 — Titik QC" },
-  { key: "s10_storage", slide: 10, label: "Slide 10 — Area Storage Part" },
-  { key: "s10_safety", slide: 10, label: "Slide 10 — Jalur Evakuasi" },
-  { key: "s12_leader", slide: 12, label: "Slide 12 — Production Leader" },
-  { key: "s12_operator", slide: 12, label: "Slide 12 — Operator" },
-  { key: "s12_qi", slide: 12, label: "Slide 12 — Quality Inspector" },
-  { key: "s12_mh", slide: 12, label: "Slide 12 — Material Handler" },
-  { key: "s14_data", slide: 14, label: "Slide 14 — Foto Pendukung Data" },
+  { key: "s12_leader", slide: 11, label: "Slide 11 — Production Leader" },
+  { key: "s12_operator", slide: 11, label: "Slide 11 — Operator" },
+  { key: "s12_qi", slide: 11, label: "Slide 11 — Quality Inspector" },
+  { key: "s12_mh", slide: 11, label: "Slide 11 — Material Handler" },
+  { key: "s14_data", slide: 13, label: "Slide 13 — Foto Pendukung Data" },
 ];
 
 const DEFAULT_SLOT: Omit<ImageSlot, "slot_key"> = {

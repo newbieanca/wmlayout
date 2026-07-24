@@ -586,7 +586,7 @@ export function Slide14() {
     { name: "Wk4", rate: 0.9 },
   ];
   return (
-    <SlideShell kicker="13 / 14  ·  Data" title="Data Pendukung (Contoh)" slideKey="s14" titleKey="s14_title">
+    <SlideShell kicker="13 / 14  ·  Data" title="Data Pendukung (Contoh: 22 Juli 2026)" slideKey="s14" titleKey="s14_title">
       <div className="grid md:grid-cols-12 gap-6 h-full">
         <div className="md:col-span-8 bg-white border border-navy/10 rounded-xl p-5 flex flex-col">
           <div className="flex items-center justify-between mb-4">
@@ -621,7 +621,7 @@ export function Slide14() {
               )}
             </ResponsiveContainer>
           </div>
-          <div className="mt-3 text-xs font-mono text-steel">Catatan: contoh data — ganti dengan data aktual di lapangan.</div>
+          <div className="mt-3 text-xs font-mono text-steel">Catatan: contoh data — dengan detail Line A Full Auto, Line B Twin Tub.</div>
         </div>
         <div className="md:col-span-4 space-y-3">
           <SlotImage slotKey="s14_data" aspect="aspect-[4/3]" placeholderLabel="Foto pendukung data" />

@@ -23,7 +23,13 @@ export function SlotImage({ slotKey, className = "", placeholderLabel, aspect = 
   }
   return (
     <div className={`${aspect} ${rounded} overflow-hidden bg-navy/5 ${className}`}>
-      <img src={slot.image_url} alt="" className={`w-full h-full ${fit}`} style={{ width: `${slot.size_percent}%`, height: `${slot.size_percent}%`, margin: "auto" }} />
+      <img
+        src={slot.image_url}
+        alt=""
+        data-lightbox
+        className={`w-full h-full ${fit} cursor-zoom-in`}
+        style={{ width: `${slot.size_percent}%`, height: `${slot.size_percent}%`, margin: "auto" }}
+      />
     </div>
   );
 }

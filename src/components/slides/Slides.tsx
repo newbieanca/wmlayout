@@ -64,6 +64,7 @@ export function Slide1() {
           </div>
         </div>
       </div>
+      <CustomLayer slideKey="s1" />
     </SlotBackground>
   );
 }

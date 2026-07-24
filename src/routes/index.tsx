@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import { SLIDES } from "@/components/slides/slide-data";
 import { SLIDE_COMPONENTS } from "@/components/slides/Slides";
 import { SettingsPanel } from "@/components/SettingsPanel";
+import { Lightbox } from "@/components/Lightbox";
 import { Toaster } from "sonner";
 import { ChevronLeft, ChevronRight, Settings, Factory, PanelLeftClose, PanelLeftOpen } from "lucide-react";
 

@@ -2,16 +2,23 @@ import { useState } from "react";
 import { SlotImage, SlotBackground } from "@/components/SlotImage";
 import { EditableText } from "@/components/EditableText";
 import { Checklist } from "@/components/Checklist";
+import { CustomLayer } from "@/components/CustomLayer";
+import { ProductionSimForm } from "@/components/ProductionSimForm";
 import { ChevronRight, Play, Target, Users, ClipboardList, ShieldCheck, BarChart3, ChevronDown, Boxes, Truck, Factory, Package, Wrench, ClipboardCheck, Map as MapIcon, AlertTriangle, CircleDot, ArrowRight, CheckCircle2, ArrowDown } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from "recharts";
 
 /* ---------- Shared shells ---------- */
-export function SlideShell({ children, kicker, title, className = "" }: { children: React.ReactNode; kicker?: string; title?: string; className?: string }) {
+export function SlideShell({ children, kicker, title, className = "", slideKey, titleKey }: { children: React.ReactNode; kicker?: string; title?: string; className?: string; slideKey?: string; titleKey?: string }) {
   return (
-    <div className={`h-full w-full flex flex-col p-8 md:p-12 overflow-auto ${className}`}>
+    <div className={`relative h-full w-full flex flex-col p-8 md:p-12 overflow-auto ${className}`}>
       {kicker && <div className="chip w-fit mb-4">{kicker}</div>}
-      {title && <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6 leading-tight">{title}</h1>}
+      {title && (
+        <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6 leading-tight">
+          {titleKey ? <EditableText contentKey={titleKey} defaultValue={title} /> : title}
+        </h1>
+      )}
       <div className="flex-1 min-h-0">{children}</div>
+      {slideKey && <CustomLayer slideKey={slideKey} />}
     </div>
   );
 }

@@ -32,11 +32,6 @@ export const IMAGE_SLOTS: SlotConfig[] = [
   { key: "s12_qi", slide: 11, label: "Slide 11 — Quality Inspector" },
   { key: "s12_mh", slide: 11, label: "Slide 11 — Material Handler" },
   { key: "s14_data", slide: 13, label: "Slide 13 — Foto Pendukung Data" },
-  { key: "s12_leader", slide: 12, label: "Slide 12 — Production Leader" },
-  { key: "s12_operator", slide: 12, label: "Slide 12 — Operator" },
-  { key: "s12_qi", slide: 12, label: "Slide 12 — Quality Inspector" },
-  { key: "s12_mh", slide: 12, label: "Slide 12 — Material Handler" },
-  { key: "s14_data", slide: 14, label: "Slide 14 — Foto Pendukung Data" },
 ];
 
 const DEFAULT_SLOT: Omit<ImageSlot, "slot_key"> = {

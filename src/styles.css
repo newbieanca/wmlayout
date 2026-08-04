@@ -118,3 +118,28 @@
   text-transform: uppercase;
   border: 1px solid color-mix(in oklab, var(--navy) 15%, white);
 }
+
+/* ---------- Print / PDF export ---------- */
+.print-slide {
+  width: 1600px;
+  height: 900px;
+  overflow: hidden;
+  position: relative;
+  background: white;
+  margin: 0 auto 24px;
+  box-shadow: 0 4px 24px rgba(22,50,74,0.15);
+}
+body.print-mode .custom-layer-toolbar { display: none !important; }
+
+@media print {
+  @page { size: 1600px 900px; margin: 0; }
+  html, body { background: white !important; }
+  .no-print { display: none !important; }
+  .print-slide {
+    margin: 0;
+    box-shadow: none;
+    page-break-after: always;
+    break-after: page;
+  }
+  .print-slide:last-child { page-break-after: auto; break-after: auto; }
+}

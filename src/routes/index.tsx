@@ -5,7 +5,7 @@ import { SLIDE_COMPONENTS } from "@/components/slides/Slides";
 import { SettingsPanel } from "@/components/SettingsPanel";
 import { Lightbox } from "@/components/Lightbox";
 import { Toaster } from "sonner";
-import { ChevronLeft, ChevronRight, Settings, Factory, PanelLeftClose, PanelLeftOpen } from "lucide-react";
+import { ChevronLeft, ChevronRight, Settings, Factory, PanelLeftClose, PanelLeftOpen, FileDown } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: PresentationApp,

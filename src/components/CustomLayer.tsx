@@ -108,7 +108,7 @@ export function CustomLayer({ slideKey }: { slideKey: string }) {
   return (
     <div ref={containerRef} className="absolute inset-0 pointer-events-none z-30" onClick={() => setSelectedId(null)}>
       {/* Toolbar */}
-      <div className="pointer-events-auto absolute top-2 right-2 flex gap-1 bg-white/95 border border-navy/20 rounded-lg shadow-md p-1 backdrop-blur-sm">
+      <div className="custom-layer-toolbar no-print pointer-events-auto absolute top-2 right-2 flex gap-1 bg-white/95 border border-navy/20 rounded-lg shadow-md p-1 backdrop-blur-sm">
         <input
           ref={fileRef}
           type="file"

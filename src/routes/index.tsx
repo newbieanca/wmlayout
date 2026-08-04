@@ -5,7 +5,7 @@ import { SLIDE_COMPONENTS } from "@/components/slides/Slides";
 import { SettingsPanel } from "@/components/SettingsPanel";
 import { Lightbox } from "@/components/Lightbox";
 import { Toaster } from "sonner";
-import { ChevronLeft, ChevronRight, Settings, Factory, PanelLeftClose, PanelLeftOpen } from "lucide-react";
+import { ChevronLeft, ChevronRight, Settings, Factory, PanelLeftClose, PanelLeftOpen, FileDown } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: PresentationApp,
@@ -55,6 +55,15 @@ function PresentationApp() {
           <span className="text-safety font-bold">{String(current + 1).padStart(2, "0")}</span>
           <span className="text-white/40"> / {String(total).padStart(2, "0")}</span>
         </div>
+        <a
+          href="/print"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 bg-safety text-navy hover:brightness-95 transition-all px-3 py-1.5 rounded text-sm font-semibold"
+        >
+          <FileDown className="w-4 h-4" />
+          <span className="hidden sm:inline">Export PDF</span>
+        </a>
         <button
           onClick={() => setSettingsOpen(true)}
           className="flex items-center gap-2 bg-white/10 hover:bg-safety hover:text-navy transition-colors px-3 py-1.5 rounded text-sm"
